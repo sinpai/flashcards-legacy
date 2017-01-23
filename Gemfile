@@ -9,6 +9,7 @@ gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'puma'
 
 gem 'jquery-rails'
 gem 'jbuilder'
