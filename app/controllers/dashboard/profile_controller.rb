@@ -1,4 +1,7 @@
+# coding: utf-8
 class Dashboard::ProfileController < Dashboard::BaseController
+
+  respond_to :html
 
   def edit
   end
