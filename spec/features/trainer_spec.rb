@@ -1,13 +1,36 @@
+# coding: utf-8
 require 'rails_helper'
 require 'support/helpers/login_helper.rb'
 include LoginHelper
 
+def create_with_review_date(arg)
+  user = create(arg)
+  user.cards.each { |card| card.update_attribute(:review_date,
+                                                 Time.now - 3.days) }
+  visit trainer_path
+  login('test@test.com', '12345', 'Войти')
+end
+
+def create_and_set_block(arg)
+  user = create(arg)
+  block = user.blocks.first
+  user.set_current_block(block)
+  card = user.cards.find_by(block_id: block.id)
+  card.update_attribute(:review_date, Time.now - 3.days)
+  visit trainer_path
+  login('test@test.com', '12345', 'Войти')
+end
+
+def training_without_cards(arg)
+  create(arg)
+  visit trainer_path
+  login('test@test.com', '12345', 'Войти')
+end
+
 describe 'review cards without blocks' do
   describe 'training without cards' do
     before do
-      create(:user)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      training_without_cards(:user)
     end
 
     it 'no cards' do
@@ -19,9 +42,7 @@ end
 describe 'review cards with one block' do
   describe 'training without cards' do
     before do
-      create(:user_with_one_block_without_cards)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      training_without_cards(:user_with_one_block_without_cards)
     end
 
     it 'no cards' do
@@ -31,11 +52,7 @@ describe 'review cards with one block' do
 
   describe 'training with two cards' do
     before do
-      user = create(:user_with_one_block_and_two_cards)
-      user.cards.each { |card| card.update_attribute(:review_date,
-                                                     Time.now - 3.days) }
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_with_review_date(:user_with_one_block_and_two_cards)
     end
 
     it 'first visit' do
@@ -71,11 +88,7 @@ describe 'review cards with one block' do
 
   describe 'training with one card' do
     before do
-      user = create(:user_with_one_block_and_one_card)
-      user.cards.each { |card| card.update_attribute(:review_date,
-                                                     Time.now - 3.days) }
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_with_review_date(:user_with_one_block_and_one_card)
     end
 
     it 'incorrect translation' do
@@ -131,9 +144,7 @@ end
 describe 'review cards with two blocks' do
   describe 'training without cards' do
     before do
-      create(:user_with_two_blocks_without_cards)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      training_without_cards(:user_with_two_blocks_without_cards)
     end
 
     it 'no cards' do
@@ -143,11 +154,7 @@ describe 'review cards with two blocks' do
 
   describe 'training with two cards' do
     before do
-      user = create(:user_with_two_blocks_and_one_card_in_each)
-      user.cards.each { |card| card.update_attribute(:review_date,
-                                                     Time.now - 3.days) }
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_with_review_date(:user_with_two_blocks_and_one_card_in_each)
     end
 
     it 'first visit' do
@@ -183,11 +190,7 @@ describe 'review cards with two blocks' do
 
   describe 'training with one card' do
     before do
-      user = create(:user_with_two_blocks_and_only_one_card)
-      user.cards.each { |card| card.update_attribute(:review_date,
-                                                     Time.now - 3.days) }
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_with_review_date(:user_with_two_blocks_and_only_one_card)
     end
 
     it 'incorrect translation' do
@@ -233,13 +236,7 @@ describe 'review cards with current_block' do
 
   describe 'training with two cards' do
     before do
-      user = create(:user_with_two_blocks_and_two_cards_in_each)
-      block = user.blocks.first
-      user.set_current_block(block)
-      card = user.cards.find_by(block_id: block.id)
-      card.update_attribute(:review_date, Time.now - 3.days)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_and_set_block(:user_with_two_blocks_and_two_cards_in_each)
     end
 
     it 'first visit' do
@@ -275,13 +272,7 @@ describe 'review cards with current_block' do
 
   describe 'training with one card' do
     before do
-      user = create(:user_with_two_blocks_and_one_card_in_each)
-      block = user.blocks.first
-      user.set_current_block(block)
-      card = user.cards.find_by(block_id: block.id)
-      card.update_attribute(:review_date, Time.now - 3.days)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      create_and_set_block(:user_with_two_blocks_and_one_card_in_each)
     end
 
     it 'incorrect translation' do
