@@ -1,7 +1,6 @@
 == README
 
-{<img src="https://travis-ci.org/elavretskiy/flashcards.svg?branch=seventh-task"
-alt="Build Status" />}[https://travis-ci.org/elavretskiy/flashcards]
+[![Build Status](https://travis-ci.org/sinpai/flashcards-legacy.svg?branch=task-1)](https://travis-ci.org/sinpai/flashcards-legacy)
 
 {<img src="https://codeclimate.com/repos/551d5933695680514c00019c/badges/20539730e3e119e4d337/gpa.svg" />}[https://codeclimate.com/repos/551d5933695680514c00019c/feed]
 
