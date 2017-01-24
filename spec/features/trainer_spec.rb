@@ -116,28 +116,6 @@ describe 'review cards with one block' do
       click_button 'Проверить'
       expect(page).to have_content 'Вы ввели перевод c опечаткой.'
     end
-
-    it 'correct translation quality=3' do
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      expect(page).to have_content 'Текущая карточка'
-    end
-
-    it 'correct translation quality=4' do
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
-    end
   end
 end
 
