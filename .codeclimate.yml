@@ -1,8 +1,0 @@
-languages:
-  Ruby: true
-  JavaScript: true
-exclude_paths:
-- "app/assets/stylesheets/bootstrap.css"
-- "spec/controllers/trainer_controller_spec.rb"
-- "spec/models/card_spec.rb"
-- "spec/features/trainer_spec.rb"
