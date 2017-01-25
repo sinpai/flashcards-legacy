@@ -8,10 +8,8 @@ class Dashboard::TrainerController < Dashboard::BaseController
     else
       if current_user.current_block
         @card = current_user.current_block.cards.pending.first
-        @card ||= current_user.current_block.cards.repeating.first
       else
         @card = current_user.cards.pending.first
-        @card ||= current_user.cards.repeating.first
       end
     end
 
@@ -24,27 +22,24 @@ class Dashboard::TrainerController < Dashboard::BaseController
   def review_card
     @card = current_user.cards.find(params[:card_id])
 
-    check_result = @card.check_translation(trainer_params[:user_translation])
-
-    if check_result[:state]
-      if check_result[:distance] == 0
-        flash[:notice] = t(:correct_translation_notice)
-      else
+    @oncheck = SuperMemo.new(@card, trainer_params[:user_translation])
+    @oncheck.card_update
+    if @card.translated_text == trainer_params[:user_translation]
+      flash[:notice] = t(:correct_translation_notice)
+    elsif (0.01..0.33).include? @oncheck.check_translation.round(2)
         flash[:alert] = t 'translation_from_misprint_alert',
                           user_translation: trainer_params[:user_translation],
                           original_text: @card.original_text,
                           translated_text: @card.translated_text
-      end
-      redirect_to trainer_path
     else
       flash[:alert] = t(:incorrect_translation_alert)
-      redirect_to trainer_path(id: @card.id)
     end
+    redirect_to trainer_path
   end
 
   private
 
   def trainer_params
-    params.permit(:user_translation)
+    params.permit(:user_translation, :utf8, :_method, :commit, :card_id, :locale)
   end
 end

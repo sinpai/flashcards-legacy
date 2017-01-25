@@ -1,3 +1,4 @@
+# coding: utf-8
 FactoryGirl.define do
   factory :card do
     original_text 'дом'
@@ -5,8 +6,6 @@ FactoryGirl.define do
     interval 1
     repeat 1
     efactor 2.5
-    quality 5
-    attempt 1
     user
     block
   end
