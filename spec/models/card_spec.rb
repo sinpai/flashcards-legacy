@@ -90,16 +90,16 @@ describe Card do
   end
 
   it 'check_translation Eng OK levenshtein_distance=1' do
-    card = Card.create(original_text: 'дом', translated_text: 'hous',
+    card = Card.create(original_text: 'дом', translated_text: 'hou',
                        user_id: 1, block_id: 1)
     check_result = SuperMemo.new(card, 'house').check_translation
-    expect(check_result).to eq 0.2
+    expect(check_result).to eq 2
   end
 
   it 'check_translation Rus OK levenshtein_distance=1' do
     card = Card.create(original_text: 'house', translated_text: 'до',
                        user_id: 1, block_id: 1)
     check_result = SuperMemo.new(card, 'дом').check_translation
-    expect(check_result.round(2)).to eq 0.33
+    expect(check_result).to eq 1
   end
 end

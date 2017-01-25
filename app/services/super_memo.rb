@@ -2,24 +2,36 @@
 # involving the calculation of easiness factors for particular items:
 # http://www.supermemo.com/english/ol/sm2.htm
 
+# Service for card check and setting new interval for card review
 class SuperMemo
-
   def initialize(card, answer)
     @card = card
     @answer = answer
   end
 
   def card_update
-    quality = set_quality(check_translation)
+    quality = get_quality(check_translation)
     efactor = set_efactor(@card.efactor, quality)
     repeat = quality >= 3 ? (@card.repeat + 1) : 1
     interval = set_interval(repeat, efactor)
-    @card.update_attributes(interval: interval, efactor: efactor, repeat: repeat, review_date: interval.days.from_now)
+    @card.update_attributes(interval: interval,
+                            efactor: efactor,
+                            repeat: repeat,
+                            review_date: interval.days.from_now)
+    get_check_status(quality)
+  end
+
+  def get_check_status(quality)
+    if @card.translated_text == @answer
+      true
+    elsif quality >= 4
+      false
+    end
   end
 
   def check_translation
-    Levenshtein.normalized_distance(full_downcase(@card.translated_text),
-                                    full_downcase(@answer))
+    Levenshtein.distance(full_downcase(@card.translated_text),
+                         full_downcase(@answer))
   end
 
   def set_interval(repeat, efactor)
@@ -31,17 +43,18 @@ class SuperMemo
   end
 
   def set_efactor(efactor, quality)
-    efactor = efactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-    efactor < 1.3 ? 1.3 : efactor
+    new_efactor = efactor + (0.1 - (5 - quality) *
+                                   (0.08 + (5 - quality) * 0.02))
+    new_efactor < 1.3 ? 1.3 : new_efactor
   end
 
-  def set_quality(distance = 1)
+  def get_quality(distance = nil)
     case distance
     when 0 then 5
-    when 0..0.25 then 4
-    when 0.26..0.5 then 3
-    when 0.51..0.75 then 2
-    when 0.76..0.99 then 1
+    when 0..1 then 4
+    when 1..2 then 3
+    when 2..3 then 2
+    when 3..4 then 1
     else 0
     end
   end

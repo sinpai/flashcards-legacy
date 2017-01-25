@@ -23,16 +23,15 @@ class Dashboard::TrainerController < Dashboard::BaseController
     @card = current_user.cards.find(params[:card_id])
 
     @oncheck = SuperMemo.new(@card, trainer_params[:user_translation])
-    @oncheck.card_update
-    if @card.translated_text == trainer_params[:user_translation]
+    if @oncheck.card_update
       flash[:notice] = t(:correct_translation_notice)
-    elsif (0.01..0.33).include? @oncheck.check_translation.round(2)
-        flash[:alert] = t 'translation_from_misprint_alert',
-                          user_translation: trainer_params[:user_translation],
-                          original_text: @card.original_text,
-                          translated_text: @card.translated_text
-    else
+    elsif @oncheck.card_update.nil?
       flash[:alert] = t(:incorrect_translation_alert)
+    else
+      flash[:alert] = t 'translation_from_misprint_alert',
+                        user_translation: trainer_params[:user_translation],
+                        original_text: @card.original_text,
+                        translated_text: @card.translated_text
     end
     redirect_to trainer_path
   end
@@ -40,6 +39,6 @@ class Dashboard::TrainerController < Dashboard::BaseController
   private
 
   def trainer_params
-    params.permit(:user_translation, :utf8, :_method, :commit, :card_id, :locale)
+    params.permit(:user_translation)
   end
 end

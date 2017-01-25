@@ -43,6 +43,7 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     builder (3.2.3)
+    byebug (9.0.6)
     capybara (2.12.0)
       addressable
       mime-types (>= 1.16)
@@ -236,6 +237,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   capybara
   carrierwave
   coffee-rails
@@ -271,4 +273,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.13.7
+   1.14.2
