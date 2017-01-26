@@ -3,4 +3,4 @@ languages:
   JavaScript: true
 exclude_paths:
 - "app/assets/stylesheets/bootstrap.css"
-- "app/spec/models/trainer_spec.rb"
+- "spec/features/trainer_spec.rb"
