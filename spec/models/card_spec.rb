@@ -25,6 +25,11 @@ def check_card_creation_validation(block, sym, match)
   expect(card.errors[sym]).to include(match)
 end
 
+def card_create
+  Card.create(original_text: 'дом', translated_text: 'house',
+              user_id: 1, block_id: 1)
+end
+
 describe Card do
   it 'create card with empty original text' do
     card_errors_check('', 'house', :original_text, 'Необходимо заполнить поле.')
@@ -60,21 +65,15 @@ describe Card do
   end
 
   it 'create card original_text OK' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       user_id: 1, block_id: 1)
-    expect(card.original_text).to eq('дом')
+    expect(card_create.original_text).to eq('дом')
   end
 
   it 'create card translated_text OK' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       user_id: 1, block_id: 1)
-    expect(card.translated_text).to eq('house')
+    expect(card_create.translated_text).to eq('house')
   end
 
   it 'create card errors OK' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       user_id: 1, block_id: 1)
-    expect(card.errors.any?).to eq(false)
+    expect(card_create.errors.any?).to eq(false)
   end
 
   it 'set_review_date OK' do

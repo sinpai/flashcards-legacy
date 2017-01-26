@@ -121,9 +121,8 @@ end
 
 describe 'review cards with two blocks' do
   describe 'training without cards' do
-    before do
-      training_without_cards(:user_with_two_blocks_without_cards)
-    end
+
+    before { training_without_cards(:user_with_two_blocks_without_cards) }
 
     it 'no cards' do
       expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
