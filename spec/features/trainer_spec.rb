@@ -276,7 +276,7 @@ describe 'review cards with current_block' do
     it 'correct translation distance=1' do
       fill_in 'user_translation', with: 'hous'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content 'Вы ввели перевод c опечаткой.'
     end
   end
 end

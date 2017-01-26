@@ -21,11 +21,10 @@ class Dashboard::TrainerController < Dashboard::BaseController
 
   def review_card
     @card = current_user.cards.find(params[:card_id])
-
     @oncheck = SuperMemo.new(@card, trainer_params[:user_translation])
-    if @oncheck.card_update
+    if upd = @oncheck.card_update
       flash[:notice] = t(:correct_translation_notice)
-    elsif @oncheck.card_update.nil?
+    elsif upd.nil?
       flash[:alert] = t(:incorrect_translation_alert)
     else
       flash[:alert] = t 'translation_from_misprint_alert',

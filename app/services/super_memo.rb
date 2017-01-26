@@ -14,19 +14,16 @@ class SuperMemo
     efactor = set_efactor(@card.efactor, quality)
     repeat = quality >= 3 ? (@card.repeat + 1) : 1
     interval = set_interval(repeat, efactor)
+    number_of = quality == 5 ? interval : 0
     @card.update_attributes(interval: interval,
                             efactor: efactor,
                             repeat: repeat,
-                            review_date: interval.days.from_now)
+                            review_date: number_of.days.from_now)
     get_check_status(quality)
   end
 
   def get_check_status(quality)
-    if @card.translated_text == @answer
-      true
-    elsif quality >= 4
-      false
-    end
+    @card.translated_text == @answer ? true : (quality >= 4 ? false : nil)
   end
 
   def check_translation
