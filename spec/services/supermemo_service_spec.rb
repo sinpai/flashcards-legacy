@@ -123,14 +123,14 @@ describe SuperMemo do
       end
 
       it 'should correctly change repeat when mistyping for 2 chars' do
-        expect(SuperMemo.new(card, 'homt').card_update).to be nil
-        expect(card.reload.repeat).to eq(2)
+        expect(SuperMemo.new(@card, 'homt').card_update).to be nil
+        expect(@card.reload.repeat).to eq(2)
       end
 
       it 'should correctly change efactor when it lower than minimum' do
-        card.update_attributes(efactor: 1.1)
-        SuperMemo.new(card, 'hond').card_update
-        expect(card.reload.efactor.round(1)).to eq(1.3)
+        @card.update_attributes(efactor: 1.1)
+        SuperMemo.new(@card, 'hond').card_update
+        expect(@card.reload.efactor.round(1)).to eq(1.3)
       end
     end
   end
