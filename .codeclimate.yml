@@ -3,5 +3,3 @@ languages:
   JavaScript: true
 exclude_paths:
 - "app/assets/stylesheets/bootstrap.css"
-- "spec/models/card_spec.rb"
-- "spec/features/trainer_spec.rb"
