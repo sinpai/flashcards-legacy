@@ -19,7 +19,7 @@ RSpec.describe Dashboard::TrainerController do
   describe 'PUT #review_card' do
     describe 'Corect message is shown' do
       it 'have correct answer' do
-        check_message('house', 6.days.from_now.to_date,
+        check_message('house', 1.days.from_now.to_date,
                       /Вы ввели верный перевод. Продолжайте.*/)
       end
 

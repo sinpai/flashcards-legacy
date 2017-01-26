@@ -13,7 +13,7 @@ class SuperMemo
     quality = get_quality(check_translation)
     efactor = set_efactor(@card.efactor, quality)
     repeat = quality >= 3 ? (@card.repeat + 1) : 1
-    interval = set_interval(repeat, efactor)
+    interval = set_interval(@card.repeat, efactor)
     number_of = quality == 5 ? interval : 0
     @card.update_attributes(interval: interval,
                             efactor: efactor,
