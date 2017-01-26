@@ -14,7 +14,14 @@ def check_translation_calculation(ortext, trtext, answer, value)
   expect(check_result).to eq value
 end
 
-def check_card_creation_validation(card, sym, match)
+def check_card_creation_validation(block, sym, match)
+  if block.eql?(0)
+    card = Card.create(original_text: 'дом', translated_text: 'house',
+                       block_id: 1)
+  else
+    card = Card.create(original_text: 'дом', translated_text: 'house',
+                       user_id: 1)
+  end
   expect(card.errors[sym]).to include(match)
 end
 
@@ -67,7 +74,7 @@ describe Card do
   it 'create card errors OK' do
     card = Card.create(original_text: 'дом', translated_text: 'house',
                        user_id: 1, block_id: 1)
-    expect(card.errors.any?).to be false
+    expect(card.errors.any?).to eq(false)
   end
 
   it 'set_review_date OK' do
@@ -78,15 +85,11 @@ describe Card do
   end
 
   it 'create card witout user_id' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       block_id: 1)
-    check_card_creation_validation(card, :user_id, 'Ошибка ассоциации.')
+    check_card_creation_validation(0, :user_id, 'Ошибка ассоциации.')
   end
 
   it 'create card witout block_id' do
-    card = Card.create(original_text: 'дом', translated_text: 'house',
-                       user_id: 1)
-    check_card_creation_validation(card, :block_id,
+    check_card_creation_validation(1, :block_id,
                                    'Выберите колоду из выпадающего списка.')
   end
 
