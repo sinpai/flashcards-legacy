@@ -41,12 +41,9 @@ describe 'review cards without blocks' do
 end
 
 describe 'review cards with one block' do
-  describe 'training without cards for one and two block' do
+  describe 'training without cards' do
     it 'no cards' do
-      %i(user_with_one_block_without_cards
-         user_with_two_blocks_without_cards).each do |arg|
-        training_without_cards(arg)
-      end
+      training_without_cards(:user_with_one_block_without_cards)
     end
   end
 
@@ -120,6 +117,11 @@ describe 'review cards with one block' do
 end
 
 describe 'review cards with two blocks' do
+  describe 'training without cards' do
+    it 'no cards' do
+      training_without_cards(:user_with_two_blocks_without_cards)
+    end
+  end
 
   describe 'training with two cards' do
     before do
