@@ -7,14 +7,12 @@ end
 
 describe SuperMemo do
 
-  let(:create_card) {Card.create(original_text: 'dog', translated_text: 'hond', user_id: 1, block_id: 1)}
-
-  before(:each) { create_card }
+  let!(:create_card) {Card.create(original_text: 'dog', translated_text: 'hond', user_id: 1, block_id: 1)}
+  let!(:reloaded_card) { create_card.reload }
 
   describe 'correct cases' do
 
-    let(:correct_answer) { SuperMemo.new(create_card, 'hond').card_update }
-    before(:each) { correct_answer }
+    let!(:correct_answer) { SuperMemo.new(create_card, 'hond').card_update }
 
     it 'should return correct state' do
       expect(correct_answer).to be true
@@ -43,8 +41,7 @@ describe SuperMemo do
 
   describe 'incorrect cases' do
 
-    let(:incorrect_answer) { SuperMemo.new(create_card, '123asd123asd').card_update }
-    before(:each) { incorrect_answer }
+    let!(:incorrect_answer) { SuperMemo.new(create_card, '123asd123asd').card_update }
 
     it 'should return correct state when invalid answer' do
       expect(incorrect_answer).to be nil
@@ -69,8 +66,7 @@ describe SuperMemo do
 
   describe 'mistyped cases' do
 
-    let(:mistyped_answer) { SuperMemo.new(create_card, 'hont').card_update }
-    before(:each) { mistyped_answer }
+    let!(:mistyped_answer) { SuperMemo.new(create_card, 'hont').card_update }
 
     it 'should return correct state when mistype' do
       expect(mistyped_answer).to be false
