@@ -114,26 +114,26 @@ describe SuperMemo do
 
       describe 'with correct answer' do
 
-        let(:studied) { SuperMemo.new(create_card, 'hond') }
+        let(:studied) { SuperMemo.new(create_card, 'hond').card_update }
 
         it 'should correctly change interval when 2 correct answers' do
-          expect(2.times { studied.card_update }).to be 2
+          expect(2.times { studied }).to be 2
           expect(create_card.interval).to eq(6)
         end
 
         it 'should correctly change interval when third correct attempt' do
-          expect(3.times { studied.card_update }).to be 3
+          expect(3.times { studied }).to be 3
           expect(create_card.reload.interval).to eq(17)
         end
 
         it 'should correctly set review_date when 4 correct answers made' do
-          4.times { studied.card_update }
+          4.times { studied }
           expect(create_card.review_date.to_date).to eq(49.day.from_now.to_date)
         end
 
         it 'should correctly change efactor when it lower than minimum' do
           create_card.update_attributes(efactor: 1.1)
-          studied.card_update
+          studied
           expect(create_card.reload.efactor.round(1)).to eq(1.3)
         end
 
