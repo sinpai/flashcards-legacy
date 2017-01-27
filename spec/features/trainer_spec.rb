@@ -25,6 +25,7 @@ def training_without_cards(arg)
   create(arg)
   visit trainer_path
   login('test@test.com', '12345', 'Войти')
+  expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
 end
 
 describe 'review cards without blocks' do
@@ -41,12 +42,8 @@ end
 
 describe 'review cards with one block' do
   describe 'training without cards' do
-    before do
-      training_without_cards(:user_with_one_block_without_cards)
-    end
-
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      training_without_cards(:user_with_one_block_without_cards)
     end
   end
 
@@ -116,39 +113,13 @@ describe 'review cards with one block' do
       click_button 'Проверить'
       expect(page).to have_content 'Вы ввели перевод c опечаткой.'
     end
-
-    it 'correct translation quality=3' do
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      expect(page).to have_content 'Текущая карточка'
-    end
-
-    it 'correct translation quality=4' do
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'RoR'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      fill_in 'user_translation', with: 'House'
-      click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
-    end
   end
 end
 
 describe 'review cards with two blocks' do
   describe 'training without cards' do
-    before do
-      training_without_cards(:user_with_two_blocks_without_cards)
-    end
-
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      training_without_cards(:user_with_two_blocks_without_cards)
     end
   end
 
@@ -298,7 +269,7 @@ describe 'review cards with current_block' do
     it 'correct translation distance=1' do
       fill_in 'user_translation', with: 'hous'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content 'Вы ввели перевод c опечаткой.'
     end
   end
 end

@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 /.env
+/.byebug_history
+/todo
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
