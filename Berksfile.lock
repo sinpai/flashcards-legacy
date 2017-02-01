@@ -1,0 +1,61 @@
+DEPENDENCIES
+  flashcards-recipe
+    path: .
+    metadata: true
+  git
+  nodejs
+  postgresql
+  rbenv
+  ruby_build
+  vim
+
+GRAPH
+  apt (5.0.1)
+    compat_resource (>= 12.16.3)
+  ark (2.2.1)
+    build-essential (>= 0.0.0)
+    seven_zip (>= 0.0.0)
+    windows (>= 0.0.0)
+  build-essential (7.0.3)
+    compat_resource (>= 12.16.3)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.16.3)
+  dmg (3.1.0)
+  flashcards-recipe (0.0.1)
+    rbenv (>= 0.0.0)
+  git (5.0.2)
+    build-essential (>= 0.0.0)
+    dmg (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  homebrew (3.0.0)
+  mingw (1.2.5)
+    compat_resource (>= 12.16.3)
+    seven_zip (>= 0.0.0)
+  nodejs (3.0.0)
+    apt (>= 2.9.1)
+    ark (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    homebrew (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  ohai (4.2.3)
+    compat_resource (>= 12.14.7)
+  openssl (6.1.1)
+  postgresql (6.0.1)
+    build-essential (>= 2.0.0)
+    compat_resource (>= 12.16.3)
+    openssl (>= 4.0)
+  rbenv (1.7.1)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    git (>= 0.0.0)
+    ohai (>= 1.1)
+  ruby_build (1.0.0)
+    yum-epel (>= 0.0.0)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  vim (2.0.2)
+  windows (2.1.1)
+    ohai (>= 4.0.0)
+  yum-epel (2.1.1)
+    compat_resource (>= 12.16.3)

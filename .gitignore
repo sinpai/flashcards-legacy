@@ -9,6 +9,7 @@
 /.env
 /.byebug_history
 /todo
+/.vagrant/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

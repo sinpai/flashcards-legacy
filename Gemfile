@@ -33,10 +33,12 @@ gem 'routing-filter'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
+gem 'berkshelf'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'byebug'
+  gem 'dotenv-rails'
 end
