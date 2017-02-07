@@ -12,6 +12,7 @@ gem 'coffee-rails'
 gem 'puma'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'jbuilder'
 gem 'sdoc',          group: :doc
 
@@ -34,6 +35,10 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
 gem 'berkshelf'
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'devise'
+gem "rolify"
 
 group :development, :test do
   gem 'rspec-rails'

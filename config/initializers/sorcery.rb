@@ -183,7 +183,7 @@ Rails.application.config.sorcery.configure do |config|
     # change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
     #
-    # user.password_attribute_name =
+    user.password_attribute_name = :password
 
 
     # downcase the username before trying to authenticate, default is false
@@ -201,7 +201,7 @@ Rails.application.config.sorcery.configure do |config|
     # change default crypted_password attribute.
     # Default: `:crypted_password`
     #
-    # user.crypted_password_attribute_name =
+    user.crypted_password_attribute_name = :encrypted_password
 
 
     # what pattern to use to join the password with the salt

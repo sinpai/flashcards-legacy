@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   filter :locale
 
   root 'main#index'
@@ -12,6 +13,12 @@ Rails.application.routes.draw do
     get 'oauth/callback' => 'oauths#callback'
     get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
   end
+
+  namespace 'admin' do
+    devise_for :users, ActiveAdmin::Devise.config
+  end
+
+  ActiveAdmin.routes(self)
 
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
