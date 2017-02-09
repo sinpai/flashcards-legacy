@@ -1,8 +1,8 @@
 # coding: utf-8
 class User < ActiveRecord::Base
-  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  rolify
   devise :database_authenticatable
   has_many :cards, dependent: :destroy
   has_many :blocks, dependent: :destroy
