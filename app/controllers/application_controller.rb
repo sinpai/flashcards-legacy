@@ -32,10 +32,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    if current_user.has_role?(:admin)
-      redirect_to rails_admin_path, alert: t(:no_permission)
-    else
-      redirect_to root_path, alert: t(:no_permission)
-    end
+    redirect_to new_admin_session_path, flash[:alert] = t(:no_permission)
   end
 end
