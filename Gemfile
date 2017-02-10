@@ -35,7 +35,7 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
 gem 'berkshelf'
-gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 gem 'devise'
 gem "rolify"

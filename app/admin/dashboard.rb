@@ -1,16 +1,5 @@
 ActiveAdmin.register_page "Dashboard" do
 
-  controller do
-    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-    private
-
-    def user_not_authorized
-      flash[:error] = "You are not authorized to perform this action."
-      redirect_to(request.referrer || root_path)
-    end
-  end
-
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   content title: proc{ I18n.t("active_admin.dashboard") } do

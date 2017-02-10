@@ -13,7 +13,7 @@ class Home::OauthsController < Home::BaseController
     else
       begin
         @user = create_from(provider)
-        @user.add_role :newuser
+        @user.add_role :user
         reset_session
         auto_login(@user)
         redirect_to trainer_path, notice: (t 'log_in_is_successful_provider_notice',

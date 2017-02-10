@@ -17,7 +17,7 @@ class ActiveAdmin::PagePolicy < ApplicationPolicy
     when 'Dashboard'
       user.has_role?(:admin)
     else
-      Pundit::NotAuthorizedError
+      false
     end
   end
 end

@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
   private
 
   def set_locale
@@ -31,7 +29,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_not_authorized
-    redirect_to new_admin_session_path, flash[:alert] = t(:no_permission)
+  def access_denied(exception)
+    Rails.logger.error "access denied! '#{exception.message}'"
+    redirect_to root_path, notice: "access denied!"
   end
 end

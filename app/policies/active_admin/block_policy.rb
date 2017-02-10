@@ -4,6 +4,6 @@ class ActiveAdmin::BlockPolicy < ApplicationPolicy
   end
 
   def show?
-    Pundit::NotAuthorizedError unless user.has_role?(:admin)
+    user.has_role?(:admin)
   end
 end
