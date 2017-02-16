@@ -15,7 +15,7 @@ RSpec.describe FlickrGatewayService do
       VCR.use_cassette('flickr/grouped_images') do
         flickr = FlickrGatewayService.new('unicorn').call
 
-        expect(flickr.to_a.size).to eq(3)
+        expect(flickr.size).to eq(3)
       end
     end
   end
