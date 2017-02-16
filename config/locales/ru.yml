@@ -36,6 +36,8 @@ ru:
   log_out_is_successful_notice: 'Выход выполнен успешно.'
   log_out_failed_provider_alert: "Вход из аккаунта %{provider.titleize} не выполнен ."
   please_log_in: 'Пожалуйста авторизуйтесь.'
+  load_from_flickr: 'Загрузить из Flickr'
+  search_in_flickr: 'Найти во Flickr'
 
   activerecord:
     errors:

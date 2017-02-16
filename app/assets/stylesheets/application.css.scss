@@ -37,3 +37,20 @@
 .block_user_current_block_id {
   margin-left: 20px;
 }
+
+#flickr-search-block {
+    display: none;
+    padding-top: 20px;
+
+    #flickr-images-block {
+        margin-top: 50px;
+    }
+}
+
+.flickr-image {
+    cursor: pointer;
+}
+
+#flickr-selected-image-block {
+    display: none;
+}

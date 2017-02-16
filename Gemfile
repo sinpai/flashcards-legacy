@@ -40,6 +40,7 @@ gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resour
 gem 'devise'
 gem "rolify"
 gem 'pundit'
+gem 'flickraw'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -47,4 +48,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'webmock'
+  gem 'vcr'
 end

@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.flickr.com/services/rest/
+    body:
+      encoding: US-ASCII
+      string: text=ruby+on+rails&per_page=12&method=flickr.photos.search&format=json&nojsoncallback=1
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - FlickRaw/0.9.9
+      Authorization:
+      - OAuth realm="https://api.flickr.com/services/rest/", oauth_consumer_key="b157586e9cfabaaf97a33b556e99fa52",
+        oauth_nonce="n8kUAPb1fDUsEJsJFY80CMU9SGI78FiEoMCEi1qjvJQ%3D", oauth_signature="8c8de653011ba227%26",
+        oauth_signature_method="PLAINTEXT", oauth_timestamp="1487247374", oauth_token="",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 16 Feb 2017 12:16:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '689'
+      P3p:
+      - policyref="https://policies.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM
+        DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND
+        PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - private
+      X-Served-By:
+      - www-bm003.flickr.bf1.yahoo.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Vary:
+      - Accept-Encoding
+      Age:
+      - '2'
+      Via:
+      - http/1.1 fts117.flickr.bf1.yahoo.com (ApacheTrafficServer [cMsSf ]), http/1.1
+        e1.ycpi.amb.yahoo.com (ApacheTrafficServer [cMsSf ])
+      Server:
+      - ATS
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"photos":{"page":1,"pages":787,"perpage":12,"total":"9443","photo":[{"id":"32085050264","owner":"145309443@N07","secret":"eb8c151336","server":"2287","farm":3,"title":"Ruby
+        on Rails online Training","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32882008486","owner":"145390416@N08","secret":"900d9747bd","server":"656","farm":1,"title":"Ruby
+        on Rails 3 Tutorial","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32882008276","owner":"145390416@N08","secret":"c78433ed31","server":"2891","farm":3,"title":"Ruby
+        on Rails for Microsoft Developers","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32922360175","owner":"145390416@N08","secret":"2e0878703a","server":"2361","farm":3,"title":"Ruby
+        on Rails Tutorial, 2nd Edition","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32798201501","owner":"145390416@N08","secret":"dd5c5f291a","server":"489","farm":1,"title":"Building
+        Dynamic Web 2.0 Websites with Ruby on Rails","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32910227155","owner":"145888999@N04","secret":"5f46ca3d10","server":"2780","farm":3,"title":"php-vs-ruby-on-rails","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32740680692","owner":"95358336@N07","secret":"429920fe8c","server":"2856","farm":3,"title":"PHP
+        vs Python vs Ruby: Detailed Comparison","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32832840526","owner":"52286102@N05","secret":"57aed04c1b","server":"3862","farm":4,"title":"WakeUpSales
+        CRM Suite: Powered by Ruby on Rails","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32470234240","owner":"94823306@N03","secret":"27d1471085","server":"3846","farm":4,"title":"Cyborg
+        - 8 - Parting Ways","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32004767984","owner":"19714819@N00","secret":"2bf28f4040","server":"3930","farm":4,"title":"Ruby!","ispublic":1,"isfriend":0,"isfamily":0},{"id":"32797871255","owner":"145309443@N07","secret":"ef33e72e8a","server":"2604","farm":3,"title":"Ruby
+        on Rails Online Training","ispublic":1,"isfriend":0,"isfamily":0},{"id":"31900181434","owner":"95358336@N07","secret":"bbb724379e","server":"681","farm":1,"title":"PHP
+        vs Python vs Ruby: Detailed Comparison","ispublic":1,"isfriend":0,"isfamily":0}]},"stat":"ok"}'
+    http_version: 
+  recorded_at: Thu, 16 Feb 2017 12:16:15 GMT
+recorded_with: VCR 3.0.3

@@ -36,6 +36,8 @@ en:
   log_out_is_successful_notice: 'Log out is successful.'
   log_out_failed_provider_alert: "Log out of your account %{provider} failed."
   please_log_in: 'Please log in.'
+  load_from_flickr: 'Load from Flickr'
+  search_in_flickr: 'Find in Flickr'
 
   activerecord:
       errors:

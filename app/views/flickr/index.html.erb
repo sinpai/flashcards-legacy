@@ -1,0 +1,11 @@
+<div class="jumbotron" id="flickr-images-grid-block">
+    <% @flickr_photos.each do |collection| %>
+        <div class="row">
+            <% collection.each do |item| %>
+                <div class="col-md-3">
+                    <%= image_tag(flickr_image_url(item), class: 'flickr-image') %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
