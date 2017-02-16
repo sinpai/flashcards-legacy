@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  resources :flickr
+
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy

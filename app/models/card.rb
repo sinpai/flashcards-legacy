@@ -2,6 +2,9 @@
 require 'super_memo'
 
 class Card < ActiveRecord::Base
+
+  attr_accessor :flickr_search_query, :remote_image_url
+
   belongs_to :user
   belongs_to :block
 

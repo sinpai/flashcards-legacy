@@ -16,6 +16,25 @@
   </div>
 
   <div class="form-group">
+      <%= link_to t(:load_from_flickr), '#', id: 'load-from-link', class: 'btn btn-primary' %>
+      <div class="row" id="flickr-search-block">
+          <div class="col-xs-3">
+              <%= f.input :flickr_search_query, as: :string, label: false, required: false,
+              input_html: { class: 'form-control' } %>
+              <%= f.input :remote_image_url, as: :hidden %>
+          </div>
+          <div class="col-xs-3">
+              <%= link_to t(:search_in_flickr), '#', class: 'btn btn-default', id: 'flickr-search-button' %>
+          </div>
+          <div id="flickr-images-block"></div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="well" id="flickr-selected-image-block">
+          <%= image_tag '', id: 'flickr-selected-image' %>
+      </div>
+  </div>
+  <div class="form-group">
     <%= f.input :block_id, collection: current_user.blocks.all.order('title'),
                       prompt: 'Выберите колоду', label: 'Колоды',
                       input_html: { class: 'form-control', required: true } %>
