@@ -42,6 +42,8 @@ gem "rolify"
 gem 'pundit'
 gem 'flickraw'
 
+gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'basic_auth'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

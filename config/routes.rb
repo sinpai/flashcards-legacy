@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :flickr
 
+  mount ApiFlashcards::Engine, at: "/api"
+
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy

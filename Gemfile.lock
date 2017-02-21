@@ -27,6 +27,14 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: https://github.com/sinpai/api_flashcards.git
+  revision: f3ae698196e49ce45cf5a9f934cb03dd749567e3
+  branch: basic_auth
+  specs:
+    api_flashcards (0.1.0)
+      rails (~> 5.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -411,6 +419,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  api_flashcards!
   berkshelf
   byebug
   capybara
