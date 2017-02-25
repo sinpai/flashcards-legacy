@@ -27,10 +27,8 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
-GIT
-  remote: https://github.com/sinpai/api_flashcards.git
-  revision: 5af8e21c1a0731047fd6a06a2a5393fb31a72642
-  branch: task-6
+PATH
+  remote: ../api_flashcards
   specs:
     api_flashcards (0.1.0)
       rails (~> 5.0.1)
