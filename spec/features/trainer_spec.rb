@@ -195,9 +195,7 @@ end
 describe 'review cards with current_block' do
   describe 'training without cards' do
     before do
-      create(:user_with_two_blocks_without_cards, current_block_id: 1)
-      visit trainer_path
-      login('test@test.com', '12345', 'Войти')
+      training_without_cards(:user_with_two_blocks_without_cards)
     end
 
     it 'no cards' do

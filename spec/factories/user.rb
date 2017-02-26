@@ -5,7 +5,7 @@ FactoryGirl.define do
     end
   end
 
-  sequence(:email) { |n| "test#{n * Time.now.to_i}@test.com" }
+  sequence(:email) { |n| "test@test.com" }
 
   factory :user do
     email
