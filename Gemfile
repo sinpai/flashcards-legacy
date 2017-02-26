@@ -42,8 +42,7 @@ gem "rolify"
 gem 'pundit'
 gem 'flickraw'
 
-#gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'task-6'
-gem 'api_flashcards', path: '../api_flashcards'
+gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'task-6'
 
 group :development, :test do
   gem 'rspec-rails'
