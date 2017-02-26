@@ -41,6 +41,7 @@ gem 'devise'
 gem "rolify"
 gem 'pundit'
 gem 'flickraw'
+gem 'yard'
 
 gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'task-6'
 
@@ -53,3 +54,4 @@ group :development, :test do
   gem 'webmock'
   gem 'vcr'
 end
+gem 'apipie-rails'
