@@ -11,6 +11,7 @@
 /todo
 /.vagrant/
 /.yardoc
+/doc/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
