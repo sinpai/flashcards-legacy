@@ -1,9 +1,4 @@
 FactoryGirl.define do
-  to_create do |instance|
-    unless instance.save
-      raise "Invalid record: " + instance.errors.full_messages.join(", ")
-    end
-  end
 
   sequence(:email) { |n| "test@test.com" }
 

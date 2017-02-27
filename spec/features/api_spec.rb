@@ -15,7 +15,7 @@ end
 
 module ApiFlashcards::Api::V1
   describe CardsController, type: :controller do
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) { create(:user) }
     routes { ApiFlashcards::Engine.routes }
 
     context "Not authenticated access" do
@@ -34,6 +34,7 @@ module ApiFlashcards::Api::V1
       end
     end
 
+    # TODO There is a problem with basic auth with rspec and sorcery's method. It needs to be figured out, why it gives 401.
     # context "Authenticated access" do
     #   before(:each) { basic_auth user.email, '12345' }
 
@@ -65,7 +66,7 @@ module ApiFlashcards::Api::V1
   end
 
   describe TrainerController, type: :controller do
-    let!(:user) {  FactoryGirl.create(:user_with_one_block_and_one_card) }
+    let!(:user) { create(:user_with_one_block_and_one_card) }
     routes { ApiFlashcards::Engine.routes }
 
     context "Not authenticated access" do
@@ -77,6 +78,7 @@ module ApiFlashcards::Api::V1
       end
     end
 
+    # TODO There is a problem with basic auth with rspec and sorcery's method. It needs to be figured out, why it gives 401.
     # context "Authenticated access" do
     #   before { basic_auth user.email, '12345' }
 
