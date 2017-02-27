@@ -43,7 +43,7 @@ gem 'pundit'
 gem 'flickraw'
 gem 'yard'
 
-gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'task-6'
+gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards'
 
 group :development, :test do
   gem 'rspec-rails'

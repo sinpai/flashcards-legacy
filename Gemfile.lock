@@ -28,13 +28,12 @@ GIT
       responders
 
 GIT
-  remote: https://github.com/sinpai/api_flashcards.git
-  revision: 15c72ca254fb857a43572a7468cf2d76eaccf2f3
-  branch: task-6
+  remote: https://github.com/sinpai/api_flashcards
+  revision: 926fc83d739cd0a3bec82d877377a2ef7cdb3d9a
   specs:
     api_flashcards (0.1.0)
-      apipie-rails
       rails (~> 5.0.1)
+      yard
 
 GEM
   remote: https://rubygems.org/
@@ -148,7 +147,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     devise (4.2.0)
