@@ -41,8 +41,9 @@ gem 'devise'
 gem "rolify"
 gem 'pundit'
 gem 'flickraw'
+gem 'yard'
 
-gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards.git', :branch => 'basic_auth'
+gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -53,3 +54,4 @@ group :development, :test do
   gem 'webmock'
   gem 'vcr'
 end
+gem 'apipie-rails'

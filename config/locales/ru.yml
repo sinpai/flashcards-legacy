@@ -47,6 +47,7 @@ ru:
         confirmation: 'Значения не совпадают.'
         taken: 'Не уникальное значение.'
         invalid: 'Не верный формат.'
+        record_invalid: 'Неверная запись'
   date:
     abbr_day_names:
     - Вс
