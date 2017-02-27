@@ -10,6 +10,7 @@
 /.byebug_history
 /todo
 /.vagrant/
+/.yardoc
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
