@@ -38,6 +38,13 @@ ru:
   please_log_in: 'Пожалуйста авторизуйтесь.'
   load_from_flickr: 'Загрузить из Flickr'
   search_in_flickr: 'Найти во Flickr'
+  words_parsing: ''
+  parse_link: 'Add cards from external site'
+  parse_url: 'Fill in URL of desired resource'
+  parse_row: 'Paste select of the block that have original and translated text'
+  parse_original: 'Original text selector'
+  parse_translated: 'Translated text selector'
+  parse_submit: 'Parse words'
 
   activerecord:
     errors:

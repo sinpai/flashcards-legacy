@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   filter :locale
@@ -22,14 +24,20 @@ Rails.application.routes.draw do
 
   resources :flickr
 
-  mount ApiFlashcards::Engine, at: "/api"
+  mount ApiFlashcards::Engine, at: '/api'
+  mount Sidekiq::Web, at: '/sidekiq'
 
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy
     post 'logout' => 'user_sessions#destroy', :as => :logout
 
-    resources :cards
+    resources :cards do
+      collection do
+        get :parse_form
+        post :parse_words
+      end
+    end
 
     resources :blocks do
       member do

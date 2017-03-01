@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <div class="panel-heading" id="phead">Parse words from external URL</div>
+    <div class="panel_body">
+        <%= simple_form_for :parse_form, url: parse_words_cards_path do |f| %>
+        <div class="form-group">
+            <%= f.input :url, label: t(:parse_url), input_html: {class: 'form-control'} %>
+        </div>
+        <div class="form-group">
+            <%= f.input :row_element, label: t(:parse_row), input_html: {class: 'form-control'} %>
+        </div>
+        <div class="form-group">
+            <%= f.input :original_text_element, label: t(:parse_original), input_html: {class: 'form-control'} %>
+        </div>
+        <div class="form-group">
+            <%= f.input :translated_text_element, label: t(:parse_translated), input_html: {class: 'form-control'} %>
+        </div>
+        <div class="form-group">
+            <%= f.button :submit, t(:parse_submit), class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+    </div>
+</div>

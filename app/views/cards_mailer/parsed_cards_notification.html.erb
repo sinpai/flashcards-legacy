@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    </head>
+    <body>
+        <h3>Добавлены новые слова:</h3>
+        <table>
+            <thead>
+                <th>English</th>
+                <th>Russian</th>
+            </thead>
+            <tbody>
+                <% @words.each do |word| %>
+                    <tr>
+                        <td><%= word[:original]%></td>
+                        <td><%= word[:translated]%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <h3>Найденные ошибки</h3>
+        <% @errors.each do |error| %>
+            <pre><%= error[:msg] %></pre>
+        <% end %>
+    </body>
+</html>
