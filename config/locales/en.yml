@@ -38,6 +38,13 @@ en:
   please_log_in: 'Please log in.'
   load_from_flickr: 'Load from Flickr'
   search_in_flickr: 'Find in Flickr'
+  words_parsing: 'You need to wait for a while. Cards will be ready soon!'
+  parse_link: 'Add cards from external site'
+  parse_url: 'Fill in URL of desired resource'
+  parse_row: 'Paste select of the block that have original and translated text'
+  parse_original: 'Original text selector'
+  parse_translated: 'Translated text selector'
+  parse_submit: 'Parse words'
 
   activerecord:
       errors:
