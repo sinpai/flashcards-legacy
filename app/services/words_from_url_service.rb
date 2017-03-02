@@ -48,7 +48,7 @@ class WordsFromUrlService
   end
 
   def send_report_mail!
-    CardsMailer.parsed_cards_notification(user_id, words, errors).deliver_now
+    CardsMailer.parsed_cards_notification(user_id, words, errors).deliver_later
   end
 
   def fix_encoding(text)
