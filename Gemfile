@@ -42,6 +42,9 @@ gem "rolify"
 gem 'pundit'
 gem 'flickraw'
 gem 'yard'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards'
 
@@ -54,4 +57,3 @@ group :development, :test do
   gem 'webmock'
   gem 'vcr'
 end
-gem 'apipie-rails'

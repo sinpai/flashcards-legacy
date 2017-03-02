@@ -12,6 +12,14 @@ class Dashboard::CardsController < Dashboard::BaseController
   def edit
   end
 
+  def parse_form
+  end
+
+  def parse_words
+    AddingWordsFromUrlJob.perform_later(current_user.id, current_user.blocks.first, parse_words_params.to_h)
+    redirect_to cards_path, notice: t(:words_parsing)
+  end
+
   def create
     @card = current_user.cards.build(card_params)
     if @card.save
@@ -38,6 +46,10 @@ class Dashboard::CardsController < Dashboard::BaseController
 
   def set_card
     @card = current_user.cards.find(params[:id])
+  end
+
+  def parse_words_params
+    params.require(:parse_form).permit(:original_text_element, :translated_text_element, :url, :row_element)
   end
 
   def card_params
