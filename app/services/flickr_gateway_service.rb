@@ -14,7 +14,9 @@ class FlickrGatewayService
   end
 
   def photos_list
-    flickr.photos.search(text: query, per_page: per_page)
+    Rails.cache.fetch("#{query}/#{per_page}", expires_in: 12.hours, race_condition_ttl: 30) do
+      flickr.photos.search(text: query, per_page: per_page)
+    end
   end
 
   def call
