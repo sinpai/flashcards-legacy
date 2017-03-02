@@ -57,7 +57,6 @@ module ApiFlashcards::Api::V1
     #     end
     #     it "has a 201 status code" do
     #       visit 'api/v1/cards'
-    #       byebug
     #       post :create, params
     #       expect(response.status).to eq(201)
     #     end

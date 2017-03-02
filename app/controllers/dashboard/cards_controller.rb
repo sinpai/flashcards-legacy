@@ -16,7 +16,7 @@ class Dashboard::CardsController < Dashboard::BaseController
   end
 
   def parse_words
-    AddingWordsFromUrlJob.perform_later(@current_user.id, parse_words_params.to_h)
+    AddingWordsFromUrlJob.perform_later(current_user.id, current_user.blocks.first, parse_words_params.to_h)
     redirect_to cards_path, notice: t(:words_parsing)
   end
 
