@@ -1,32 +1,34 @@
 # coding: utf-8
 class WordsFromUrlService
   attr_accessor :errors, :words
-  attr_reader :node, :params, :user_id, :block_id
+  attr_reader :node, :params, :user_id
 
   def initialize(user_id, params)
     @user_id = user_id
-    @block_id = block_id
     @params = params
     @errors = []
     @words = []
-    @node = parse_resourse(params[:url])
+    @node = parse_resourse
   end
 
   def parse
-    node.search(params[:search_xpath]).each do |row|
-      original_text   = row.search(params[:original_text_selector].strip).first
-      translated_text = row.search(params[:translated_text_selector].strip).first
-
-      create_card!(original_text, translated_text)
+    if node.kind_of? Nokogiri::HTML::Document
+      byebug
+      node.search(params[:row_element]).each do |row|
+        original_text   = row.search(params[:original_text_element].strip).first
+        translated_text = row.search(params[:translated_text_element].strip).first
+        create_card!(original_text, translated_text)
+      end
+      send_report_mail!
+    else
+      errors << { msg: 'node is not Nokogiri object!' }
     end
-
-    send_report_mail!
   end
 
-  def parse_resourse(url)
-    Nokogiri::HTML(open(url))
+  def parse_resourse
+    Nokogiri::HTML(open(params[:url]))
   rescue => e
-    @errors << { msg: e.to_s }
+    errors << { msg: e.to_s }
   end
 
   def create_card!(original_text, translated_text)
