@@ -3,8 +3,9 @@ class WordsFromUrlService
   attr_accessor :errors, :words
   attr_reader :node, :params, :user_id
 
-  def initialize(user_id, params)
+  def initialize(user_id, block_id, params)
     @user_id = user_id
+    @block_id = block_id
     @params = params
     @errors = []
     @words = []
@@ -37,7 +38,7 @@ class WordsFromUrlService
         original_text: first_downcase_word(original_text),
         translated_text: first_downcase_word(translated_text),
         user_id: user_id,
-        block_id: 1
+        block_id: block_id
       )
 
       if card.valid?
