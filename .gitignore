@@ -23,4 +23,5 @@
 .idea/*
 config/database.yml
 config/application.yml
-public/uploads/
+public/uploads/dump.rdb
+public/uploads
