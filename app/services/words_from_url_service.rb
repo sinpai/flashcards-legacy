@@ -14,7 +14,6 @@ class WordsFromUrlService
 
   def parse
     if node.kind_of? Nokogiri::HTML::Document
-      byebug
       node.search(params[:row_element]).each do |row|
         original_text   = row.search(params[:original_text_element].strip).first
         translated_text = row.search(params[:translated_text_element].strip).first
