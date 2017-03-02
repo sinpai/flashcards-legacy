@@ -25,3 +25,4 @@ config/database.yml
 config/application.yml
 public/uploads/dump.rdb
 public/uploads
+dump.rdb
