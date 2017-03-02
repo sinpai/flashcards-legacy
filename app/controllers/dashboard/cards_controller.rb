@@ -52,10 +52,6 @@ class Dashboard::CardsController < Dashboard::BaseController
     params.require(:parse_form).permit(:original_text_element, :translated_text_element, :url, :row_element)
   end
 
-  def parse_params_hash
-    parse_words_params.to_h.merge! Hash.new(block_id: current_user.blocks.first)
-  end
-
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date,
                                  :image, :image_cache, :remove_image, :block_id, :user_id, :remote_image_url)

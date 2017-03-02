@@ -29,7 +29,6 @@ class WordsFromUrlService
     Nokogiri::HTML(open(params[:url]))
   rescue => e
     errors << { msg: e.to_s }
->>>>>>> acc36bd63f37539064ed2065063cdf2cab5164c2
   end
 
   def create_card!(original_text, translated_text)
