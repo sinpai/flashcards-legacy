@@ -45,6 +45,7 @@ gem 'yard'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'redis-rails'
 
 gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards'
 
