@@ -23,6 +23,7 @@ class Dashboard::CardsController < Dashboard::BaseController
   def create
     @card = current_user.cards.build(card_params)
     if @card.save
+      track_user_created_card
       redirect_to cards_path
     else
       respond_with @card
