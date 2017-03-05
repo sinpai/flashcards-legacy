@@ -46,6 +46,7 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'redis-rails'
+gem 'analytics-ruby', '~> 2.0.0'
 
 gem 'api_flashcards', :git => 'https://github.com/sinpai/api_flashcards'
 

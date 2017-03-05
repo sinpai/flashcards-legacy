@@ -32,6 +32,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
                         original_text: @card.original_text,
                         translated_text: @card.translated_text
     end
+    track_user_reviewed_card
     redirect_to trainer_path
   end
 
